@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { styled } from 'styled-components';
-import Button from './Button.jsx';
+// import Button from './Button.jsx';
 import CustomInput from './CustomInput.jsx';
+import TailwindButton from './TailwindComponents/TailwindButton.jsx';
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
@@ -39,8 +40,11 @@ export default function AuthInputs() {
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
   return (
-    <div id="auth-inputs">
-      <ControlDiv>
+    <div id="auth-inputs" className='mx-auto w-full max-w-sm p-8 rounded shadow-md bg-gradient-to-b from-stone-700 to-stone-800'>
+      {/* <ControlDiv> */}
+      <div className='flex flex-col gap-2 mb-6'>
+
+
         {/* <div className="controls"> */}
         {/* <label>Email</label> */}
         {/* <p>
@@ -82,15 +86,23 @@ export default function AuthInputs() {
           />
         </p> */}
         {/* </div> */}
-      </ControlDiv>
-      <div className="actions">
-        <TextButton
+        {/* </ControlDiv> */}
+      </div>
+      <div className="flex justify-end gap-4">
+        {/* <TextButton
         //  type="button" 
         // className="text-button"
         >
           Create a new account
-        </TextButton>
-        <Button className='button' onClick={handleLogin}>Sign In</Button>
+        </TextButton> */}
+        <button
+          type="button"
+          className="text-amber-400 hover:text-amber-500"
+        >
+          Create a new account
+        </button>
+        {/* <Button className='button' onClick={handleLogin}>Sign In</Button> */}
+        <TailwindButton onClick={handleLogin}>Sign In</TailwindButton>
       </div>
     </div>
   );
